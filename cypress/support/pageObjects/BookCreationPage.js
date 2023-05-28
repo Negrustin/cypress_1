@@ -1,9 +1,11 @@
-import { faker } from '@faker-js/faker';
-  const randomBookTitle = faker.word.words(2);
-    const randomBookDescription = faker.word.words(10);
-    const randomAuthorFullName = faker.name.fullName();
+import {
+  faker
+} from '@faker-js/faker';
+const randomBookTitle = faker.word.words(2);
+const randomBookDescription = faker.word.words(10);
+const randomAuthorFullName = faker.name.fullName();
 class BookCreationPage {
-  
+
   titleField = '#title';
   descriptionField = '#description';
   authorsField = '#authors';
@@ -12,8 +14,10 @@ class BookCreationPage {
   fileTextField = '#fileBook';
   submitButton = 'Submit';
   bookTitleSelector = '.card-title';
-  bookAuthorSelector = '.card-text'
-  
+  bookAuthorSelector = '.card-text';
+  addToFavoriteButton = 'Add to favorite';
+  deleteFromFavoriteButton = 'Delete from favorite';
+
   addNewBook() {
     cy.contains(this.addBookButton).click();
   }
@@ -40,6 +44,17 @@ class BookCreationPage {
   createBook(submitButton) {
     cy.contains(this.submitButton).click();
   }
+  addBookToFavorite(){
+    cy.contains(this.addToFavoriteButton).click()
+  }
+  deleteBookFromFavorite(){
+    cy.contains(this.deleteFromFavoriteButton).click();
+  }
+
+  verifyAddedBookToFavorite() {
+    cy.contains(this.deleteFromFavoriteButton).should('be.visible');
+  }
+
 
   createSomethingBook() {
 
@@ -59,7 +74,7 @@ class BookCreationPage {
   verifyBookDetails() {
     cy.get(this.bookTitleSelector).should('contain', randomBookTitle);
     cy.get(this.bookAuthorSelector).should('contain', randomAuthorFullName);
-  } 
+  }
 }
 
 export default BookCreationPage;

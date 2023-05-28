@@ -22,5 +22,17 @@ describe('Book page', () => {
   
     
   });
+
+  it.only('dfdsfdsfs', () => {
+
+    loginPage.login(email,password);
+  
+        bookCreationPage.createSomethingBook();
+        bookCreationPage.addBookToFavorite();
+        bookCreationPage.addBookToFavorite()
+        bookCreationPage.verifyAddedBookToFavorite()
+
+       bookCreationPage.deleteBookFromFavorite();
+  });
   
 });
