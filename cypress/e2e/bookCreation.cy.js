@@ -23,16 +23,21 @@ describe('Book page', () => {
     
   });
 
-  it.only('dfdsfdsfs', () => {
+  it('adds and then removes a book from favorites', () => {
 
     loginPage.login(email,password);
   
         bookCreationPage.createSomethingBook();
         bookCreationPage.addBookToFavorite();
-        bookCreationPage.addBookToFavorite()
         bookCreationPage.verifyAddedBookToFavorite()
 
        bookCreationPage.deleteBookFromFavorite();
+       bookCreationPage.verifyAddedBookToFavorite()
   });
+
+
+  
+
+
   
 });

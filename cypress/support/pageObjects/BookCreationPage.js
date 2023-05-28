@@ -54,6 +54,9 @@ class BookCreationPage {
   verifyAddedBookToFavorite() {
     cy.contains(this.deleteFromFavoriteButton).should('be.visible');
   }
+  verifyRemoveBookToFavorite() {
+    cy.contains(this.deleteFromFavoriteButton).should('not.exist');
+  }
 
 
   createSomethingBook() {
