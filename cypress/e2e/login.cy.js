@@ -2,9 +2,12 @@ import { faker } from '@faker-js/faker';
 import LoginPage from '../support/pageObjects/LoginPage';
 
 describe('login page', () => {
+  
   const loginPage = new LoginPage();
-  const email = Cypress.env('CYPRESS_LOGIN');
-  const password = Cypress.env('CYPRESS_PASSWORD')
+  const accountName = Cypress.env('accountName') || 'test_user_1';
+  const account = Cypress.env('accounts')[accountName];
+  const email = account.login;
+  const password = account.password;
 
   beforeEach(() => {
     loginPage.visit();

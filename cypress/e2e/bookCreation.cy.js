@@ -6,8 +6,10 @@ describe('Book page', () => {
   const loginPage = new LoginPage();
   const bookCreationPage = new BookCreationPage();
 
-  const email = Cypress.env('CYPRESS_LOGIN');
-  const password = Cypress.env('CYPRESS_PASSWORD')
+  const accountName = Cypress.env('accountName') || 'test_user_1';
+  const account = Cypress.env('accounts')[accountName];
+  const email = account.login;
+  const password = account.password;
 
   beforeEach(() => {
     loginPage.visit('/');
@@ -32,7 +34,7 @@ describe('Book page', () => {
         bookCreationPage.verifyAddedBookToFavorite()
 
        bookCreationPage.deleteBookFromFavorite();
-       bookCreationPage.verifyAddedBookToFavorite()
+       bookCreationPage.verifyRemoveBookToFavorite()
   });
 
 
