@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:desktop": "cypress run --config configuration=desktop",
-    "test:mobile": "cypress run --config configuration=mobile",
-    "test:desktop:headless": "cypress run --headless --config configuration=desktop",
-    "test:mobile:headless": "cypress run --headless --config configuration=mobile",
-    "test:desktop:chrome": "cypress run --browser chrome --config configuration=desktop",
-    "test:mobile:chrome": "cypress run --browser chrome --config configuration=mobile",
-    "test:desktop:firefox": "cypress run --browser firefox --config configuration=desktop",
-    "test:mobile:firefox": "cypress run --browser firefox --config configuration=mobile"
+    "cy:mobile:headless:chrome": "cross-env CYPRESS_ENV=mobile cypress run --browser chrome",
+    "cy:laptop:headless:chrome": "cross-env CYPRESS_ENV=laptop cypress run --browser chrome",
+    "cy:mobile:headless:firefox": "cross-env CYPRESS_ENV=mobile cypress run --browser firefox",
+    "cy:laptop:headless:firefox": "cross-env CYPRESS_ENV=laptop cypress run --browser firefox",
+    "cy:mobile:headed": "cross-env CYPRESS_ENV=mobile cypress open",
+    "cy:laptop:headed": "cross-env CYPRESS_ENV=laptop cypress open"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +17,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "canvas": "^2.11.2",
+    "cross-env": "^7.0.3",
     "cypress": "^12.13.0",
     "cypress-file-upload": "^5.0.8"
   }
